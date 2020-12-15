@@ -34,6 +34,7 @@ function App() {
   }, []);
 
   const toggleSong = async idx => {
+
     if (songPlaying === idx) {
       setSongPlaying('');
       return;
@@ -41,7 +42,7 @@ function App() {
 
     const songFilePath = songs[idx].filePath;
     try {
-      const fileAccessURL = await Storage.get(songFilePath);
+      const fileAccessURL = await Storage.get(songFilePath, { expires: 60 });
       console.log('access url', fileAccessURL);
       setSongPlaying(idx);
       setAudioURL(fileAccessURL);
@@ -84,7 +85,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <AmplifySignOut />
-        <h2>My App Content</h2>
+        <h2>Alexandria's Songs</h2>
       </header>
       <div className="songList">
         {songs.map((song, idx) => {
