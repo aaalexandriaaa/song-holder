@@ -28,3 +28,4 @@
 # Future Goals
 * Better styling
 * Edit & Delete Functionality
+* Consider expanding the functionality so that one person can upload media and share it with specific others rather than all songs are available to everyone who logs in. 
